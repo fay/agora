@@ -6,7 +6,7 @@ from django.template import RequestContext
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from agora.forms import ThreadForm, ReplyForm
+from agora.forms import ThreadForm, ReplyForm, Forum
 from agora.models import (
     Forum,
     ForumCategory,
@@ -31,6 +31,8 @@ def forums(request):
     most_active_threads = ForumThread.objects.order_by("-reply_count")
     most_viewed_threads = ForumThread.objects.order_by("-view_count")
 
+    forums = Forum.objects.all()
+
     return render_to_response("agora/forums.html", {
         "categories": categories,
         "most_active_forums": most_active_forums,
@@ -38,6 +40,7 @@ def forums(request):
         "most_active_members": most_active_members,
         "latest_posts": latest_posts,
         "latest_threads": latest_threads,
+        "forums": forums,
         "most_active_threads": most_active_threads,
         "most_viewed_threads": most_viewed_threads,
     }, context_instance=RequestContext(request))
