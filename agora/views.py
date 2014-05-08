@@ -6,7 +6,7 @@ from django.template import RequestContext
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from agora.forms import ThreadForm, ReplyForm, Forum
+from agora.forms import ThreadForm, ReplyForm
 from agora.models import (
     Forum,
     ForumCategory,
