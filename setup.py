@@ -8,11 +8,12 @@ setup(
     author_email = "development@eldarion.com",
     description = "an extensible forum app for Django and Pinax",
     long_description = open("README.rst").read(),
+    include_package_data=True,
     license = "BSD",
     url = "http://github.com/eldarion/agora",
     packages = [
         "agora",
-        "agora.templatetags"
+        "agora.templatetags",
     ],
     install_requires = [
         "django-appconf==0.5"
