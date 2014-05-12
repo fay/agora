@@ -7,12 +7,12 @@ class ForumThreadPostQuerySet(models.query.QuerySet):
         queryset = super(ForumThreadPostQuerySet, self).iterator()
         reverse = self._posts_manager_params["reverse"]
         thread = self._posts_manager_params["thread"]
-        if not reverse:
-            yield thread
+        #if not reverse:
+        #    yield thread
         for obj in queryset:
             yield obj
-        if reverse:
-            yield thread
+        #if reverse:
+        #    yield thread
 
     def _clone(self, *args, **kwargs):
         kwargs["_posts_manager_params"] = self._posts_manager_params
